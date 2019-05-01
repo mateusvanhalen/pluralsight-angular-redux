@@ -1,3 +1,4 @@
+//requires redux sotre.
 const { createStore, applyMiddleware } = require('redux');
 
 const defaultState = {
@@ -35,6 +36,7 @@ const logger = store => next => action => {
   return result;
 }
 
+//this creates store needsa access to reducer to get updated state
 const store = createStore(reducer, defaultState, applyMiddleware(logger));
 
 function addView(viewFunc) {
